@@ -1,4 +1,4 @@
-# Genera windows\runner\resources\app_icon.ico: destello naranja + termómetro.
+﻿# Genera windows\runner\resources\app_icon.ico: destello naranja + termómetro.
 # Se dibuja en una cuadrícula de 256 unidades y se renderiza en cada tamaño.
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path $PSScriptRoot -Parent

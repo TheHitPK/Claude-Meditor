@@ -1,4 +1,4 @@
-# Genera el instalador: build\installer_output\ClaudeMeter-Setup-<versión>.exe
+﻿# Genera el instalador: build\installer_output\ClaudeMeter-Setup-<versión>.exe
 # Requisitos: Flutter, Visual Studio (C++) e Inno Setup 6.
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent

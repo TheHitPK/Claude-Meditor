@@ -1,0 +1,34 @@
+# Compila Claude Meter y su instalador en un servidor Windows de GitHub.
+# El resultado se descarga desde la pestaña Actions (artefacto "ClaudeMeter-Setup").
+name: Build Windows installer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: claude_meter
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Instalar Inno Setup
+        run: choco install innosetup -y --no-progress
+
+      - name: Compilar app e instalador
+        run: ./installer/build.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ClaudeMeter-Setup
+          path: claude_meter/build/installer_output/*.exe
